@@ -1,0 +1,39 @@
+.sidenav {
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb; /* subtle border */
+  padding: 1rem;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.sidenav ul > li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidenav ul > li > a {
+  text-decoration: none;
+  color: #8b19d2;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-weight: 900;
+
+}
+
+.sidenav ul > li > a:hover {
+  background-color: #8b19d2;
+  color: #ffffff;
+}
+
+.sidenav ul > li > a.active {
+  background-color: #8b19d2;
+  color: #ffffff;
+}
+
+
+
+

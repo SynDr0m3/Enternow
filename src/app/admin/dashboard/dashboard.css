@@ -1,0 +1,239 @@
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --primary: #000a59; /* deep purple */
+  --accent: #8b19d2; /* lighter purple */
+  --muted: #6b7280;
+  --border: rgba(99, 102, 241, 0.08);
+  --shadow: rgba(17, 24, 39, 0.06);
+  --radius: 10px;
+  --gap: 1rem;
+  --card-min: 180px;
+}
+
+/* Top header area */
+.top-headers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(107, 33, 168, 0.03), transparent 60%);
+  border-bottom: 1px solid rgba(16, 24, 40, 0.04);
+}
+
+.top-headers > p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #000a59;
+  letter-spacing: 0.1px;
+}
+
+/* filter button (also keep span rule for backward compatibility) */
+.top-headers > span,
+.top-headers .filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.9rem;
+  color: #000a59;
+  border-radius: 8px;
+  border: 1px solid #8b19d2;
+  background: rgba(139, 25, 210, 0.04);
+}
+
+.top-headers .filter-btn {
+  cursor: pointer;
+  border: none;
+  background: transparent; /* already has background via shared rule */
+  padding: 0.4rem 0.9rem;
+  font-weight: 600;
+}
+
+.top-headers .filter-btn:focus {
+  outline: 3px solid rgba(107, 33, 168, 0.12);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Summary/statistics section */
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  margin: 30px;
+}
+
+/* Card-like blocks inside section (keeps original selector to avoid HTML changes) */
+section > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--card-min);
+  flex: 1 1 220px;
+  max-width: 300px;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* More explicit card classes to style the new HTML structure */
+.stat-card {
+  /* reuses the generic card styles but allows fine-tuning */
+  align-items: flex-start;
+  text-align: start;
+  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+}
+
+/* //Adding Color Untop the cards */
+.stat-card:nth-child(1) {
+  border-top: 5px solid #8b19d2;
+}
+.stat-card:nth-child(2) {
+  border-top: 5px solid #d21abc;
+}
+.stat-card:nth-child(3) {
+  border-top: 5px solid #d21976;
+}
+.stat-card:nth-child(4) {
+  border-top: 5px solid #d21919;
+}
+
+.list-card {
+  align-items: flex-start;
+  width: 100%;
+  max-width: 420px;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.06);
+}
+
+.list-heading {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.03);
+  margin-bottom: 0.5rem;
+}
+
+select {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.9rem;
+  color: #000a59;
+  border-radius: 8px;
+  border: 1px solid #8b19d2;
+  background: rgba(139, 25, 210, 0.04);
+}
+
+select:focus {
+  outline: 3px solid rgba(107, 33, 168, 0.12);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.list-item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0;
+  border-top: 1px solid rgba(16, 24, 40, 0.02);
+}
+
+.muted {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+section > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.08);
+}
+
+section > div > span:first-child {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000a59;
+}
+
+section > div > span:nth-child(2) {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+/* Row inside each card */
+section > div > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.6rem;
+}
+
+/* Small helper for icons inside stats (if any) */
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(107, 33, 168, 0.08), rgba(139, 25, 210, 0.03));
+  color: #000a59;
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  section {
+    padding: 1rem;
+    margin: 20px;
+  }
+  section > div {
+    flex: 1 1 45%;
+    max-width: 46%;
+  }
+}
+
+@media (max-width: 560px) {
+  .top-headers {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .top-headers > p {
+    font-size: 1.05rem;
+  }
+  section {
+    margin: 12px;
+    padding: 12px;
+  }
+  section > div {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Small utility reset for consistent spacing */
+.top-headers p,
+.top-headers span {
+  line-height: 1;
+}

@@ -1,0 +1,27 @@
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f9fafb; /* light gray background */
+}
+
+/* Header stays at top */
+
+
+/* Body section with sidenav + main content */
+.admin-body {
+  display: flex;
+  flex: 1;
+  /* overflow: hidden; */
+}
+
+/* Sidenav on the left */
+
+
+/* Main content area */
+.admin-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background-color: #f9fafb;
+}

@@ -1,0 +1,14 @@
+<div class="container">
+  <form [formGroup]="loginForm" class="login-width">
+    <h4>{{ companyName }}</h4>
+    <mat-form-field appearance="outline">
+      <mat-label>Staff ID</mat-label>
+      <input matInput type="text" formControlName="staffId" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+    <button matButton="filled" (click)="submitForm()" id="button1">Login</button>
+  </form>
+</div>

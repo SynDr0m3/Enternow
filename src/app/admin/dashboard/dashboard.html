@@ -1,0 +1,54 @@
+<main>
+  <!-- <app-admin-header></app-admin-header> -->
+  <div class="top-headers">
+    <p>Welcome, {{ name }} 👑</p>
+
+    <select name="filter" id="filter">
+      <option *ngFor="let filters of filter" [value]="filters">{{ filters }}</option>
+    </select>
+  </div>
+  <section>
+    <!-- Stats: value first, label second to match CSS emphasis -->
+    <div class="stat-card" role="region" aria-label="Signins">
+      <span>2,000</span>
+      <span>Signins</span>
+    </div>
+    <div class="stat-card" role="region" aria-label="Lateness percentage">
+      <span>5%</span>
+      <span>% Lateness</span>
+    </div>
+    <div class="stat-card" role="region" aria-label="Early birds percentage">
+      <span>95%</span>
+      <span>Early birds%</span>
+    </div>
+    <div class="stat-card" role="region" aria-label="Suspensions">
+      <span>18</span>
+      <span>Suspension</span>
+    </div>
+  </section>
+
+  <section>
+    <!-- Two list cards: keep the inner row structure so CSS still applies -->
+    <div class="list-card" role="group" aria-label="Top earliest staff">
+      <div class="list-heading">
+        <span>Top Earliest</span>
+        <span class="muted">Staff</span>
+      </div>
+      <!-- List items with staff and department pairs -->
+      <div class="list-item" *ngFor="let staff of staffList">
+        <span class="stat-icon">{{ staff.name }}</span>
+        <span class="muted">{{ staff.department }}</span>
+      </div>
+    </div>
+    <div class="list-card" role="group" aria-label="Other top staff lists">
+      <div class="list-heading">
+        <span>Lateness</span>
+        <span class="muted">Count</span>
+      </div>
+      <div class="list-item" *ngFor="let staff of staffList">
+        <span class="stat-icon">{{ staff.name }}</span>
+        <span class="muted">{{ staff.count }}</span>
+      </div>
+    </div>
+  </section>
+</main>
