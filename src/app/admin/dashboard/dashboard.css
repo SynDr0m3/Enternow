@@ -190,8 +190,8 @@ section > div > div {
 
 /* Small helper for icons inside stats (if any) */
 .stat-icon {
-  width: 40px;
-  height: 40px;
+  width: 5rem;
+  height: 2.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -21,26 +21,15 @@ export class Dashboard implements OnInit {
 
   // Combined staff and department into a single array of objects
   staffList: StaffMember[] = [
-    { name: 'Tope', department: 'Administration', count: '4/5' },
-    { name: 'Sayo', department: 'Sales', count: '1/5' },
-    { name: 'Segun', department: 'Production', count: '2/5' },
-    { name: 'Able', department: 'Human Resources', count: '4/5' },
-    { name: 'Janet', department: 'IT', count: '3/5' },
+    { name: 'Abdul', department: 'Administration', count: '3/5' },
+    { name: 'Segun', department: 'Sales', count: '2/5' },
+    { name: 'Gojo', department: 'Production', count: '3/5' },
+    { name: 'Wong', department: 'Human Resources', count: '2/5' },
+    { name: 'Todo', department: 'IT', count: '1/5' },
   ];
 
-  // constructor() {}
-
-  // Function to get a random staff member and department
-  // getRandomStaff(): StaffMember {
-  //   const randomIndex = Math.floor(Math.random() * this._staff.length);
-  //   return {
-  //     name: this._staff[randomIndex],
-  //     department: this._departments[randomIndex],
-  //   };
-  // }
-
   // Keep original arrays for other uses if needed
-  private _staff = ['Tope', 'Sayo', 'Segun', 'Able', 'Janet'];
+  private _staff = ['Abdul', 'Segun', 'Gojo', 'Wukong', 'Todo'];
   private _departments = [
     'Administration',
     'Sales',

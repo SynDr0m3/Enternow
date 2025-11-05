@@ -15,25 +15,20 @@
 
 .sidenav ul > li > a {
   text-decoration: none;
-  color: #8b19d2;
+  color: #000a59;
   display: block;
   padding: 0.5rem;
   border-radius: 4px;
   margin-bottom: 0.5rem;
   font-weight: 900;
-
 }
 
 .sidenav ul > li > a:hover {
-  background-color: #8b19d2;
+  background-color: #000a59;
   color: #ffffff;
 }
 
 .sidenav ul > li > a.active {
-  background-color: #8b19d2;
+  background-color: #000a59;
   color: #ffffff;
 }
-
-
-
-
