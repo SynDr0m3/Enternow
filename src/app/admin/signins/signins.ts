@@ -19,7 +19,13 @@ const staffData: StaffElement[] = [
     staffId: 'Staff ID 1023',
   },
   { name: 'Sayo', department: 'Sales', count: '1/5', signin: true, staffId: 'Staff ID 1023' },
-  { name: 'Segun', department: 'Production', count: '2/5', signin: false, staffId: 'Staff ID 1023' },
+  {
+    name: 'Segun',
+    department: 'Production',
+    count: '2/5',
+    signin: false,
+    staffId: 'Staff ID 1023',
+  },
   {
     name: 'Able',
     department: 'Human Resources',
@@ -35,9 +41,8 @@ const staffData: StaffElement[] = [
   templateUrl: './signins.html',
   styleUrl: './signins.css',
 })
-
 export class Signins implements OnInit {
-  dataSource!: IStaff[]
+  dataSource!: IStaff[];
 
   constructor(private adminService: Admin) {}
 
@@ -56,7 +61,3 @@ export class Signins implements OnInit {
     this.onGetSignin();
   }
 }
-
-
-
-
