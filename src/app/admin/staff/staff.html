@@ -1,1 +1,65 @@
-<p>staff works!</p>
+<div class="staff-container">
+  <div class="staff-list">
+    <mat-card *ngFor="let staff of staffList">
+      <mat-card-header>
+        <mat-card-title>{{ staff.name }}</mat-card-title>
+        <mat-card-subtitle>{{ staff.email }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <mat-icon>login</mat-icon>
+            <div class="stat-details">
+              <span class="stat-label">Sign-ins</span>
+              <span class="stat-value">{{ staff.signInCount }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <mat-icon>timer</mat-icon>
+            <div class="stat-details">
+              <span class="stat-label">Late Count</span>
+              <span class="stat-value">{{ staff.latenessCount }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <mat-icon>money_off</mat-icon>
+            <div class="stat-details">
+              <span class="stat-label">Deductions</span>
+              <span class="stat-value">₦{{ staff.deductions }}</span>
+            </div>
+          </div>
+        </div>
+
+        <h3>Sign-in History</h3>
+        <mat-table [dataSource]="staff.signInHistory" class="history-table">
+          <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+            <mat-cell *matCellDef="let record">{{ record.date }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="timeIn">
+            <mat-header-cell *matHeaderCellDef>Time In</mat-header-cell>
+            <mat-cell *matCellDef="let record">{{ record.timeIn }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="timeOut">
+            <mat-header-cell *matHeaderCellDef>Time Out</mat-header-cell>
+            <mat-cell *matCellDef="let record">{{ record.timeOut }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="isLate">
+            <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+            <mat-cell *matCellDef="let record">
+              <div class="status-chip" [class.late]="record.isLate">
+                {{ record.isLate ? 'Late' : 'On Time' }}
+              </div>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

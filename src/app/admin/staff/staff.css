@@ -1,0 +1,77 @@
+.staff-container {
+  padding: 20px;
+}
+
+.staff-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.stat-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.history-table {
+  margin-top: 16px;
+  width: 100%;
+}
+
+mat-card {
+  margin-bottom: 20px;
+}
+
+mat-header-cell,
+mat-cell {
+  padding: 8px;
+}
+
+mat-card-content {
+  padding: 16px;
+}
+
+h3 {
+  margin: 20px 0 10px;
+  color: #333;
+}
+
+.status-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  background-color: #4caf50;
+  color: white;
+}
+
+.status-chip.late {
+  background-color: #f44336;
+}
