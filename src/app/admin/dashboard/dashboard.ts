@@ -10,9 +10,11 @@ interface StaffMember {
   selector: 'app-dashboard',
   standalone: false,
   templateUrl: './dashboard.html',
-  styleUrl: './dashboard.css',
+  styleUrls: ['./dashboard.css'],
 })
 export class Dashboard implements OnInit {
+  // total sign-ins counter (used in submitSignIn)
+  signIns: number = 0;
   // constructor() {}
 
   name: string = 'Abdulmuiz';
@@ -40,6 +42,65 @@ export class Dashboard implements OnInit {
     'Legal',
     'IT',
   ];
+
+  // Modal state
+  showSignInModal = false;
+  showSuccessMessage = false;
+
+  // Sign-in form data
+  signInForm = {
+    employeeId: '',
+    department: '',
+    email: '',
+    signInTime: '',
+    notes: '',
+  };
+
+  openSignInModal() {
+    this.showSignInModal = true;
+    this.showSuccessMessage = false;
+    // Reset form
+    this.signInForm = {
+      employeeId: '',
+      department: '',
+      email: '',
+      signInTime: '',
+      notes: '',
+    };
+  }
+
+  closeSignInModal() {
+    this.showSignInModal = false;
+    this.showSuccessMessage = false;
+  }
+
+  submitSignIn() {
+    // Validate required fields
+    if (!this.signInForm.employeeId || !this.signInForm.department || !this.signInForm.email) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    // If no time provided, use current time
+    if (!this.signInForm.signInTime) {
+      const now = new Date();
+      this.signInForm.signInTime = now.toTimeString().slice(0, 5);
+    }
+
+    // Here you would typically send this data to your backend API
+    console.log('Sign-in created:', this.signInForm);
+
+    // Show success message
+    this.showSuccessMessage = true;
+
+    // Increment sign-ins count
+    this.signIns++;
+
+    // Close modal after 2 seconds
+    setTimeout(() => {
+      this.closeSignInModal();
+    }, 2000);
+  }
 
   ngOnInit(): void {
     // Add any initialization logic here

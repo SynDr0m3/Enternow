@@ -7,7 +7,7 @@ import { Staff } from './staff/staff';
 import { Signins } from './signins/signins';
 import { Report } from './report/report';
 import { Login } from './login/login';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material-module';
 import { AdminLayout } from './layout/admin-layout/admin-layout';
 import { AdminSideNav } from './layout/admin-side-nav/admin-side-nav';
@@ -15,6 +15,6 @@ import { AdminHeader } from './layout/admin-header/admin-header';
 
 @NgModule({
   declarations: [Dashboard, Staff, Signins, Report, Login, AdminLayout, AdminSideNav, AdminHeader],
-  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, MaterialModule],
+  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, FormsModule, MaterialModule],
 })
 export class AdminModule {}

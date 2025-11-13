@@ -3,9 +3,9 @@
   <div class="top-headers">
     <p>Welcome, {{ name }} 👑</p>
 
-    <select name="filter" id="filter">
-      <option *ngFor="let filters of filter" [value]="filters">{{ filters }}</option>
-    </select>
+    <button class="create-signin-btn" (click)="openSignInModal()">
+      <span class="btn-icon">+</span> Create Sign-In
+    </button>
   </div>
   <section>
     <!-- Stats: value first, label second to match CSS emphasis -->
@@ -51,4 +51,86 @@
       </div>
     </div>
   </section>
+
+  <!-- Sign-In Modal -->
+  <div class="modal-overlay" *ngIf="showSignInModal" (click)="closeSignInModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Create Sign-In for Staff</h2>
+        <button class="close-btn" (click)="closeSignInModal()">&times;</button>
+      </div>
+
+      <form class="signin-form" (ngSubmit)="submitSignIn()">
+        <div class="form-group">
+          <label for="employeeId">Employee ID <span class="required">*</span></label>
+          <input
+            type="text"
+            id="employeeId"
+            [(ngModel)]="signInForm.employeeId"
+            name="employeeId"
+            placeholder="Enter employee ID"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="department">Department <span class="required">*</span></label>
+          <select id="department" [(ngModel)]="signInForm.department" name="department" required>
+            <option value="" disabled selected>Select department</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Finance">Finance</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Operations">Operations</option>
+            <option value="Sales">Sales</option>
+            <option value="IT">IT</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="signInForm.email"
+            name="email"
+            placeholder="employee@company.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="signInTime">Sign-In Time</label>
+          <input
+            type="time"
+            id="signInTime"
+            [(ngModel)]="signInForm.signInTime"
+            name="signInTime"
+          />
+          <small class="helper-text">Leave blank to use current time</small>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Notes (Optional)</label>
+          <textarea
+            id="notes"
+            [(ngModel)]="signInForm.notes"
+            name="notes"
+            placeholder="Add any relevant notes about this sign-in..."
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-cancel" (click)="closeSignInModal()">Cancel</button>
+          <button type="submit" class="btn-submit">Create Sign-In</button>
+        </div>
+      </form>
+
+      <div class="success-message" *ngIf="showSuccessMessage">
+        <span class="success-icon">✓</span>
+        Sign-in created successfully!
+      </div>
+    </div>
+  </div>
 </main>
